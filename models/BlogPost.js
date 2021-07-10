@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 
 class BlogPost extends Model {}
 
-Project.init(
+BlogPost.init(
   {
 
     id: {
@@ -24,10 +24,6 @@ Project.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    needed_funding: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
-    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -41,7 +37,7 @@ Project.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'blog_post',
+    modelName: 'blogpost',
   }
 );
 

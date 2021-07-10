@@ -106,7 +106,7 @@ app.listen(PORT, () => {
 
 // GIVEN a CMS-style blog site
 // WHEN I visit the site for the first time
-// THEN I am presented with the homepage, which includes existing blog posts if any have been posted; navigation links for the homepage and the dashboard; and the option to log in
+
 // WHEN I click on the homepage option
 // THEN I am taken to the homepage
 // WHEN I click on any other links in the navigation
@@ -137,3 +137,44 @@ app.listen(PORT, () => {
 // THEN I am signed out of the site
 // WHEN I am idle on the site for more than a set time
 // THEN I am able to view comments but I am prompted to log in again before I can add, update, or delete comments
+
+
+
+// Brainstormed task that need completing
+// -----------------------------------------------------------------------
+// Create Handlebars Page with views
+// Create Homepage with existing blog posts
+// Create navigation links for homepage and dashboard and log in
+
+
+
+
+
+
+
+// --------------------------------------------------------------------------------
+
+
+// Tasks to be completed Today 7/10/2021
+// ---------------------------------------------------------
+// CReate Crud operations on database
+// Once Data is created check to see if forign key is working correctly
+
+
+
+
+
+
+
+
+// Completed Tasks 
+// -------------------------------------------------------------------------------------
+// Models Created completed
+// Create seeds completed
+// create bulk fill into data base completed
+
+
+
+// Files Completed 
+// --------------------------------------------------------------------------------------------
+// seeds file done
