@@ -1,3 +1,5 @@
+
+<container id="profileContainer">
 <div class="row">
   <div class="col-auto">
     <h2>Welcome, {{name}}!</h2>
@@ -5,11 +7,26 @@
 </div>
 
 <div class="row mt-4">
-  <div class="col-md-6">
-    <h3>Create a New Project:</h3>
-
+  <div class="col-md-6" id= "createPost">
+    <h3>Create a New Blog Posting:</h3>
+    
     <form class="form new-project-form">
+      <div class="mb-3 form-group">
+        <label for="blogpost-title" class="form-label">Post Title</label>
+        <input type="text" class="form-control" id="blogpost-title" name= "blogpost-title" placeholder="Enter title for posting">
+      </div>
+      <div class="mb-3 form-group">
+        <label for="blogpost-content" class="form-label">Post Content</label>
+        <textarea class="form-control" id="blogpost-content" name="blogpost-content" rows="3"></textarea>
+      </div>
       <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+
+
+
+
+      {{!-- <div class="form-group">
         <label for="blogpost-title">Title:</label>
         <input class="form-input" type="text" id="blogpost-title" name="blogpost-title" />
       </div>
@@ -19,26 +36,52 @@
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Create</button>
-      </div>
+      </div> --}}
     </form>
   </div>
-
+  
   {{#if blogposts.length}}
-  <div class="col-md-6 project-list">
-    <h3>Current Projects:</h3>
+  <div class="col-md-6 project-list previousBlog">
+    <h3>Previous Postings:</h3>
 
     {{#each blogposts as |blogpost|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/blogpost/{{blogpost.id}}">{{blogpost.title}}</a></h4>
+    <div class="row mb-2 ">
+      <div class="col-md-8 blogItem">
+        <h5 class="titleBox">{{blogpost.id}}: {{blogpost.title}}</h5>
+        <p class= "postBox">{{blogpost.content}}</p>
       </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{blogpost.id}}">DELETE</button>
+      <div class="col-md-4 profileBtns">
+        <button class="btn btn-sm btn-danger" data-id="{{blogpost.id}}">UPDATE</button>
+        <button class="btn btn-sm btn-danger" data-id="{{blogpost.id}}" id="deleteBtn">DELETE</button>
       </div>
     </div>
     {{/each}}
   </div>
   {{/if}}
 </div>
+</container>
 
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Launch static backdrop modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
 <script src="./js/profile.js"></script>

@@ -1,6 +1,8 @@
 
 // File has not been tested.
-
+// const loginBtn = document.querySelector('.login-form');
+// console.log(loginBtn);
+console.log("loginfile");
 const loginFormHandler = async (event) => {
     event.preventDefault();
   
@@ -28,14 +30,14 @@ const loginFormHandler = async (event) => {
   const signupFormHandler = async (event) => {
     event.preventDefault();
   
-    const title = document.querySelector('#name-signup').value.trim();
+    const name = document.querySelector('#name-signup').value.trim();
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
   
-    if (title && email && password) {
+    if (name && email && password) {
       const response = await fetch('/api/users', {
         method: 'POST',
-        body: JSON.stringify({ title, email, password }),
+        body: JSON.stringify({ name, email, password }),
         headers: { 'Content-Type': 'application/json' },
       });
   
@@ -46,6 +48,7 @@ const loginFormHandler = async (event) => {
       }
     }
   };
+  
   
   document
     .querySelector('.login-form')
