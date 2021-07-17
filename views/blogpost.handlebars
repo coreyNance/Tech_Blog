@@ -1,0 +1,49 @@
+{{!-- <div class="text-center">
+  <h2>{{name}}</h2>
+  <p>{{{get_emoji}}}</p>
+  <p>{{blogpost.id}}</p>
+  <p>Created by {{user.name}} on {{format_date date_created}}</p>
+  <p>
+    <span for="img" aria-label="money">💲</span>
+    <span class="dollar-amount">{{format_amount needed_funding}}</span>
+    needed
+  </p>
+  <p>
+    <button class="btn btn-primary">Fund this Project!</button>
+  </p>
+</div> --}}
+
+<div class="row mb-2 ">
+      <div class="col-md-8 blogItem">
+        <h5 class="titleBox">{{blogpost.id}}: {{blogpost.title}}</h5>
+        <p class= "postBox">{{blogpost.content}}</p>
+      </div>
+      <div class="col-md-4 profileBtns">
+        <button class="btn btn-sm btn-danger" data-id="{{blogpost.id}}" id="commentBtn">COMMENT</button>
+      </div>
+    </div>
+
+
+     {{!-- {{#if blogposts.length}}
+  <div class="col-md-6 project-list previousBlog">
+    <h3>Previous Postings:</h3>
+
+    {{#each blogposts as |blogpost|}}
+    <div class="row mb-2 ">
+      <div class="col-md-8 blogItem">
+        <h5 class="titleBox">{{blogpost.id}}: {{blogpost.title}}</h5>
+        <p class= "postBox">{{blogpost.content}}</p>
+      </div>
+      <div class="col-md-4 profileBtns">
+        <button class="btn btn-sm btn-danger" data-id="{{blogpost.id}}">UPDATE</button>
+        <button class="btn btn-sm btn-danger" data-id="{{blogpost.id}}" id="deleteBtn">DELETE</button>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</div> --}}
+
+<p> This link is working</p>
+
+

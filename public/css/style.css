@@ -4,10 +4,18 @@
  
 }
 
-/* .modDisplay {
-  display: block;
-  border-bottom: solid 1px rgb(192, 192, 192);
-} */
+a:hover {
+  color: rgb(208, 208, 240)
+}
+
+#blogUl {
+  display: flex;
+  flex-direction: column;
+ margin-left: 40%;
+}
+
+
+
 
 #profileContainer {
 
@@ -32,8 +40,8 @@
 
 .blogItem {
   border: solid 1px rgb(192, 192, 192);
-  /* width: 100%; */
-  /* padding-right: 10%; */
+  width: 100%;
+ 
 }
 .titleBox {
   padding: 2%;
@@ -41,7 +49,8 @@
 }
 
 .postBox {
-  padding: 10%
+  padding: 10%;
+  width: 100%;
 }
 .previousBlog {
   width: 100%;

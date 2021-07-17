@@ -1,22 +1,22 @@
 <!-- Loop over each object in the projects array -->
+<ul id = "blogUl">
 {{#each blogPosts as |blogpost| }}
+<li id = "blogLi">
 <div class="row mb-4">
   <div class="col-md-20">
      <div class="row mb-4 ">
-      <div class=" blogItem ">
-        <h5 class="titleBox">{{blogpost.id}}: {{blogpost.title}}</h5>
-        <p class= "postBox">{{blogpost.content}}</p>
+        <div class=" blogItem ">
+          <h5 class="titleBox">
+          <a href="/blogpost/{{blogpost.id}}">{{blogpost.id}}: {{blogpost.title}}</a>
+          </h5>
+          {{!-- <p class= "postBox">{{blogpost.content}}</p> --}}
+          <p>Created by {{blogpost.user.name}} on {{format_date blogpost.date_created}}</p>
+        </div>
       </div>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      {{!-- {{{get_emoji}}} --}}
-      {{!-- <p> {{blogpost.id}}:  {{blogpost.title}}</p> ---------------------- --}}
-
-    <p class= "homepagePost">Created by {{blogpost.user.name}} on {{format_date blogpost.date_created}}</p>
   </div>
-  {{!-- <div class="col-md-7">
-    <p>
-      {{blogpost.content}}
-    </p>
-  </div> --}}
+  
 </div>
+
+</li>
 {{/each}}
+</ul>

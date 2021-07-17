@@ -1,5 +1,5 @@
 // File has not been tested.
-
+console.log("this is the logout page");
 const logout = async () => {
   console.log("this point works");
     const response = await fetch('/api/users/logout', {

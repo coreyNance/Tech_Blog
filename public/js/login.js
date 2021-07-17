@@ -1,8 +1,8 @@
 
 // File has not been tested.
 // const loginBtn = document.querySelector('.login-form');
-// console.log(loginBtn);
-console.log("loginfile");
+// // console.log(loginBtn);
+// console.log("loginfile");
 const loginFormHandler = async (event) => {
     event.preventDefault();
   
@@ -49,12 +49,14 @@ const loginFormHandler = async (event) => {
     }
   };
   
+  let loginBtn = document.querySelector('.login-form');
+  let signupBtn = document.querySelector('.signup-form')
+
+  if (loginBtn !== null) {
+    loginBtn.addEventListener('submit', loginFormHandler);
+  }
   
-  document
-    .querySelector('.login-form')
-    .addEventListener('submit', loginFormHandler);
-  
-  document
-    .querySelector('.signup-form')
-    .addEventListener('submit', signupFormHandler);
+  if(signupBtn !== null) {
+    signupBtn.addEventListener('submit', signupFormHandler);
+  }
   
