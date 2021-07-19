@@ -13,15 +13,32 @@
   </p>
 </div> --}}
 
-{{!-- <div class="row mb-2 ">
+<div class="row mb-2 commentBlog">
       <div class="col-md-8 blogItem">
+        <p class="m-2 fst-italic">by {{blogpost.user.name}} on {{format_date blogpost.date_created}}</p>
         <h5 class="titleBox">{{blogpost.id}}: {{blogpost.title}}</h5>
         <p class= "postBox">{{blogpost.content}}</p>
       </div>
-      <div class="col-md-4 profileBtns">
-        <button class="btn btn-sm btn-danger" data-id="{{blogpost.id}}" id="commentBtn">COMMENT</button>
-      </div>
-    </div> --}}
+
+      <hr class="m-2">
+
+<h2 class="m-2">Comments</h2>
+<!-- Loop over each comment in the blog.comments array -->
+{{#each blogpost.comments as |comment|}}
+<p class="m-2">{{comment.content}}</p>
+<p class="m-2 fst-italic">by {{comment.user.name}} on {{format_date comment.date_created}}</p>
+<hr class="m-2">
+{{/each}}
+
+<form class="comment-form m-2" data-id={{blog.id}}>
+  <div class="mb-3">
+    <label for="addComment" class="form-label">Add a Comment</label>
+    <textarea class="form-control" id="addComment" rows="3"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+    
+    </div> 
 
 
      {{!-- {{#if blogposts.length}}
@@ -44,28 +61,13 @@
   {{/if}}
 </div> --}}
 
-<h2 class="m-2">{{blogpost.title}}</h2> 
-<p class="m-2 fst-italic">by {{blogpost.user.name}} on {{format_date blogpost.date_created}}</p>
-<p class="m-2">{{blogpost.content}}</p>
-<hr class="m-2">
 
-<h2 class="m-2">Comments</h2>
-<!-- Loop over each comment in the blog.comments array -->
-{{#each blogpost.comments as |comment|}}
-<p class="m-2">{{comment.comment}}</p>
-<p class="m-2 fst-italic">by {{comment.user.name}} on {{format_date comment.date_created}}</p>
-<hr class="m-2">
-{{/each}}
-
-<form class="comment-form m-2" data-id={{blog.id}}>
-  <div class="mb-3">
-    <label for="addComment" class="form-label">Add a Comment</label>
-    <textarea class="form-control" id="addComment" rows="3"></textarea>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+{{!-- ------------------------------------------------------------------------------------------------------------------------------------- --}}
 
 
+
+
+{{!-- ---------------------------------------------------------------------------------------------------------------------------------------- --}}
 
 <script src="../js/comment.js"></script>
 
@@ -73,6 +75,6 @@
   <script src="../js/logout.js"></script>
 {{/if}}
 
-<p> This link is working</p>
+
 
 
