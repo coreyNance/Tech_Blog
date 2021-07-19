@@ -15,6 +15,31 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+router.put('/:id', withAuth, async (req, res) => {
+  try {
+    const blogPostData = await BlogPost.update({
+      title: req.body.title,
+      content: req.body.content,
+      user_id: req.session.user_id,
+    },
+    {
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      },
+    });
+
+    if (!blogPostData) {
+      res.status(404).json({ message: 'No blog post found with this id!' });
+      return;
+    }
+
+    res.status(200).json(blogPostData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const blogPostData = await BlogPost.destroy({
@@ -32,6 +57,21 @@ router.delete('/:id', withAuth, async (req, res) => {
     res.status(200).json(blogPostData);
   } catch (err) {
     res.status(500).json(err);
+  }
+});
+
+router.post('/:id', withAuth, async (req, res) => {
+  try {
+    const newComment = await Comment.create({
+      comment: req.body.comment,
+      user_id: req.session.user_id,
+      blog_id: req.params.id,
+    });
+
+
+    res.status(200).json(newComment);
+  } catch (err) {
+    res.status(400).json(err);
   }
 });
 

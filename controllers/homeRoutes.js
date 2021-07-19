@@ -28,7 +28,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/blogPost/:id', async (req, res) => {
+router.get('/blogPost/:id', withAuth, async (req, res) => {
 
   try {
     const blogPostData = await BlogPost.findByPk(req.params.id, {
@@ -55,7 +55,7 @@ router.get('/blogPost/:id', async (req, res) => {
     const blogpost = blogPostData.get({ plain: true });
 
    
-    res.render('blogPost', {
+    res.render('blogpost', {
       blogpost,
       logged_in: req.session.logged_in
     });

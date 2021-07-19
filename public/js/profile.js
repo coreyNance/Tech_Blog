@@ -1,5 +1,5 @@
-
-// Need to switch this file over for blog data
+let postButtons = document.querySelectorAll('.updateButton');
+let deleteButtons = document.querySelectorAll('.deleteButton');
 
 const newFormHandler = async (event) => {
     event.preventDefault();
@@ -8,7 +8,7 @@ const newFormHandler = async (event) => {
     const content = document.querySelector('#blogpost-content').value.trim();
   
     if (title && content) {
-      const response = await fetch(`/api/blogposts`, {
+      const response = await fetch(`/api/blogPosts`, {
         method: 'POST',
         body: JSON.stringify({title, content}),
         headers: {
@@ -25,77 +25,53 @@ const newFormHandler = async (event) => {
   };
   
   const delButtonHandler = async (event) => {
-    // if ((event.target.hasAttribute('data-id')) && (document.querySelector('#deleteBtn') === true)) {
       const id = event.target.getAttribute('data-id');
-      const response = await fetch(`/api/blogposts/${id}`, {
+      const response = await fetch(`/api/blogPosts/${id}`, {
         method: 'DELETE',
       });
-  
+      console.log(response);
       if (response.ok) {
         document.location.replace('/profile');
       } else {
         alert('Failed to delete project');
       }
-    // }
+  
   };
 
   const updateButtonHandler = async (event) => {
-    // if ((event.target.hasAttribute('data-id')) && (document.querySelector('#deleteBtn') === true)) {
+      event.preventDefault();
       const id = event.target.getAttribute('data-id');
-      const response = await fetch(`/api/blogposts/${id}`, {
-        method: 'POST',
+
+      const title = document.querySelector(`#updateTitle${id}`).value.trim();
+      const content = document.querySelector(`#updateContent${id}`).value.trim();
+      console.log(title);
+   
+      const response = await fetch(`/api/blogPosts/${id}`, {
+        method: 'PUT',
         body: JSON.stringify({title, content}),
         headers: {
           'Content-Type': 'application/json',
         }
         });
-  
+        console.log(response);
       if (response.ok) {
         document.location.replace('/profile');
       } else {
-        alert('Failed to delete project');
+        alert('Failed to update project');
       }
-    // }
+    
   };
-
-  const commentFormHandler = async (event) => {
-    event.preventDefault();
-  
-    const comment = document.querySelector('#addComment').value.trim();
-    const id = event.target.getAttribute('data-id')
-  
-    if (comment) {
-      const response = await fetch(`/api/blogPost/${id}`, {
-        method: 'POST',
-        body: JSON.stringify({comment}),
-        headers: { 'Content-Type': 'application/json' },
-      });
-  
-      if (response.ok) {
-        document.location.reload();
-      } else {
-        alert(response.statusText);
-      }
-    }
-  };
-  
-  
-  document
-    .querySelector('.comment-form')
-    .addEventListener('submit', commentFormHandler);
  
-  let deleteBtn = document.querySelector('#deleteBtn');
 
-  if(deleteBtn !== null) {
-    deleteBtn.addEventListener('click', delButtonHandler);
+  for(each of deleteButtons) {
+    each.addEventListener('click', delButtonHandler);
   }
   
+  for(each of postButtons) {
+    each.addEventListener('click', updateButtonHandler);
+  }
+ 
   document.querySelector('.new-project-form')
     .addEventListener('submit', newFormHandler);
   
-  // document
-  //   .querySelector('.project-list')
-  //   .addEventListener('click', delButtonHandler);
-
-
-  
+ 

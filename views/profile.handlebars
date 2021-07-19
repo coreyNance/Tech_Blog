@@ -51,14 +51,59 @@
         <p class= "postBox">{{blogpost.content}}</p>
       </div>
       <div class="col-md-4 profileBtns">
-        <button class="btn btn-sm btn-danger" data-id="{{blogpost.id}}">UPDATE</button>
-        <button class="btn btn-sm btn-danger" data-id="{{blogpost.id}}" id="deleteBtn">DELETE</button>
+
+        <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#blog{{blogpost.id}}" data-id="{{blogpost.id}}">UPDATE</button>
+        <button class="btn btn-sm btn-danger deleteButton" data-id="{{blogpost.id}}" id="deleteBtn">DELETE</button>
       </div>
     </div>
+
+    <!-- New Post Modal -->
+<div class="modal fade" id="blog{{blogpost.id}}" tabindex="-1" aria-labelledby="blog{{blogpost.id}}" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="blog{{blogpost.id}}">Update Post</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form class="blogPost-form">
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="updateTitle{{blogpost.id}}" class="form-label">Update Title</label>
+            <input type="text" class="form-control" id="updateTitle{{blogpost.id}}" value="{{blogpost.title}}">
+          </div>
+          <div class="mb-3">
+            <label for="updateContent{{blogpost.id}}" class="form-label">Content</label>
+            <textarea class="form-control" id="updateContent{{blogpost.id}}" rows="3">{{blogpost.content}}</textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary updateButton" data-bs-dismiss="modal" data-id="{{blogpost.id}}">Save Post</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
     {{/each}}
   </div>
   {{/if}}
 </div>
+
+
+
+
+  <!-- New Post Button trigger modal -->
+  {{!-- <div class="row justify-content-center mt-3">
+    <button type="button" class="btn btn-primary col-sm-4 col-6" data-bs-toggle="modal" data-bs-target="#newPost">
+      New Post
+    </button>
+  </div>
+</div> --}}
+
+
+
 </container>
 
+<script src="./js/logout.js"></script>
 <script src="./js/profile.js"></script>
