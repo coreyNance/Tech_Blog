@@ -5,12 +5,12 @@ const commentFormHandler = async (event) => {
     const id = event.target.getAttribute('data-id')
     console.log(comment);
     if (comment) {
-      const response = await fetch(`/api/blogPost/${id}`, {
+      const response = await fetch(`/api/blogPosts/${id}`, {
         method: 'POST',
         body: JSON.stringify({comment}),
         headers: { 'Content-Type': 'application/json' },
       });
-  
+      console.log(response);
       if (response.ok) {
         document.location.reload();
       } else {

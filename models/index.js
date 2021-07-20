@@ -11,24 +11,24 @@ BlogPost.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
-Comment.belongsTo(User, {
-  foreignKey: 'user_id',
-  onDelete: 'cascade',
-  hooks: true
-});
-
-Comment.belongsTo(BlogPost, {
-  foreignKey: 'blogpost_id',
-  onDelete: 'cascade',
-  hooks: true
-});
-
-
 BlogPost.hasMany(Comment, {
   foreignKey: 'blogpost_id',
   onDelete: 'CASCADE',
   hooks: true
 });
+
+Comment.belongsTo(User, {
+  foreignKey: 'user_id',
+ 
+});
+
+Comment.belongsTo(BlogPost, {
+  foreignKey: 'blogpost_id',
+ 
+});
+
+
+
 
 
 module.exports = { User, BlogPost, Comment};
