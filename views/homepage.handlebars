@@ -1,6 +1,5 @@
-<!-- Loop over each object in the projects array -->
 <ul id = "blogUl">
-{{#each blogPosts as |blogpost| }}
+{{#each blogposts as |blogpost| }}
 <li id = "blogLi">
 <div class="row mb-4">
   <div class="col-md-20">
@@ -9,7 +8,7 @@
           <h5 class="titleBox">
           <a href="/blogpost/{{blogpost.id}}">{{blogpost.id}}: {{blogpost.title}}</a>
           </h5>
-          {{!-- <p class= "postBox">{{blogpost.content}}</p> --}}
+          <p class= "postBox">{{blogpost.content}}</p>
           <p>Created by {{blogpost.user.name}} on {{format_date blogpost.date_created}}</p>
         </div>
       </div>

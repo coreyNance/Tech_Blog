@@ -31,14 +31,14 @@ BlogPost.init(
         key: 'id',
       },
     },
-    // post_comments: [Comment]  <-- Alternative Data Association
+
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'blogPost',
+    modelName: 'blogpost',
   }
 );
 

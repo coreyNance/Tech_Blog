@@ -15,11 +15,11 @@ router.get('/', async (req, res) => {
     });
 
   
-    const blogPosts = blogPostData.map((blogPost) => blogPost.get({ plain: true }));
+    const blogposts = blogPostData.map((blogpost) => blogpost.get({ plain: true }));
 
 
     res.render('homepage', { 
-      blogPosts, 
+      blogposts, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/blogPost/:id', withAuth, async (req, res) => {
+router.get('/blogpost/:id', withAuth, async (req, res) => {
 
   try {
     const blogPostData = await BlogPost.findByPk(req.params.id, {
@@ -51,11 +51,11 @@ router.get('/blogPost/:id', withAuth, async (req, res) => {
       ],
     });
     
-    const blogpost = blogPostData.get({ plain: true });
+    const blogposts = blogPostData.get({ plain: true });
 
    
     res.render('blogpost', {
-      blogpost,
+      blogposts,                              
       logged_in: req.session.logged_in
     });
   } catch (err) {

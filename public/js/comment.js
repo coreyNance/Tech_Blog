@@ -3,14 +3,14 @@ const commentFormHandler = async (event) => {
   
     const comment = document.querySelector('#addComment').value.trim();
     const id = event.target.getAttribute('data-id')
-    console.log(comment);
+  
     if (comment) {
-      const response = await fetch(`/api/blogPosts/${id}`, {
+      const response = await fetch(`/api/blogPost/${id}`, {
         method: 'POST',
         body: JSON.stringify({comment}),
         headers: { 'Content-Type': 'application/json' },
       });
-      console.log(response);
+  
       if (response.ok) {
         document.location.reload();
       } else {
@@ -19,7 +19,7 @@ const commentFormHandler = async (event) => {
     }
   };
   
-  document
-  .querySelector('.comment-form')
-    .addEventListener('submit', commentFormHandler);
   
+  document
+    .querySelector('.comment-form')
+    .addEventListener('submit', commentFormHandler);

@@ -8,7 +8,7 @@ const newFormHandler = async (event) => {
     const content = document.querySelector('#blogpost-content').value.trim();
   
     if (title && content) {
-      const response = await fetch(`/api/blogPosts`, {
+      const response = await fetch(`/api/blogpost`, {
         method: 'POST',
         body: JSON.stringify({title, content}),
         headers: {
@@ -26,7 +26,7 @@ const newFormHandler = async (event) => {
   
   const delButtonHandler = async (event) => {
       const id = event.target.getAttribute('data-id');
-      const response = await fetch(`/api/blogPosts/${id}`, {
+      const response = await fetch(`/api/blogpost/${id}`, {
         method: 'DELETE',
       });
       console.log(response);
@@ -46,7 +46,7 @@ const newFormHandler = async (event) => {
       const content = document.querySelector(`#updateContent${id}`).value.trim();
       console.log(title);
    
-      const response = await fetch(`/api/blogPosts/${id}`, {
+      const response = await fetch(`/api/blogpost/${id}`, {
         method: 'PUT',
         body: JSON.stringify({title, content}),
         headers: {
